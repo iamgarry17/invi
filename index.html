@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitation Card</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+
+        .card-container {
+            width: 300px;
+            height: 180px;
+            perspective: 1000px;
+        }
+
+        .card {
+            width: 100%;
+            height: 100%;
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 1s;
+        }
+
+        .card.opened {
+            transform: rotateY(180deg);
+        }
+
+        .card-content {
+            position: absolute;
+            backface-visibility: hidden;
+        }
+
+        .card-front {
+            font-size: 1.2em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card-back {
+            transform: rotateY(180deg);
+            background-color: #ffffff;
+            color: #000000;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .card-back p {
+            margin: 0;
+            font-size: 1.1em;
+        }
+    </style>
+</head>
+<body>
+
+<div class="card-container">
+    <div class="card" id="invitationCard">
+        <div class="card-content card-front">
+            Tap to Open
+        </div>
+        <div class="card-content card-back">
+            <p>I would like to invite you to Gary’s Dinner at 08:00pm.</p>
+        </div>
+    </div>
+</div>
+
+<script>
+    const card = document.getElementById('invitationCard');
+
+    card.addEventListener('click', function () {
+        card.classList.toggle('opened');
+    });
+</script>
+
+</body>
+</html>
